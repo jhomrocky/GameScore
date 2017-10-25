@@ -27,32 +27,35 @@ namespace GameScore.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Score score = db.Scores.Find(id);
-            if (score == null)
+            Score score = db.Scores.Find(id); //searches Scores db to print info from ID #
+                                              //Score score populates score variable
+            if (score == null)  //controller checks db, if there is no id, returns http not found
             {
                 return HttpNotFound();
             }
             return View(score);
         }
 
-        // GET: Scores/Create
-        public ActionResult Create()
+        // GET: Scores/Create    GET: asking for stuff
+        public ActionResult Create() //shows "Create" view/page
         {
             return View();
         }
 
-        // POST: Scores/Create
+        // POST: Scores/Create   POST: sending info to controller
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost] //data annotation sending items to page
+        [ValidateAntiForgeryToken] //security feature
         public ActionResult Create([Bind(Include = "ID,Name,Points")] Score score)
+                                    //takes in entity as argument
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) //checks to make sure database is okay before adding to it
             {
-                db.Scores.Add(score);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                db.Scores.Add(score); //"Scores" table/model, "score" new added value
+                                      //passed in on line 50
+                db.SaveChanges();     //saves db changes (duh)
+                return RedirectToAction("Index"); //takes user back to Index page
             }
 
             return View(score);
