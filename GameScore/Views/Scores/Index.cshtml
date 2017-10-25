@@ -1,14 +1,20 @@
 ﻿@model IEnumerable<GameScore.Models.Score>
 
+@*specialized type of list that acts the same*@
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Game Score Page";
 }
 
+@*Title*@
 <h2>Index</h2>
 
+
+@*Commenting for razor/cshtml*@
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Player", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>

@@ -83,9 +83,9 @@ namespace GameScore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,Points")] Score score)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) //if we're good
             {
-                db.Entry(score).State = EntityState.Modified;
+                db.Entry(score).State = EntityState.Modified; //checks to see if scores were modified
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
