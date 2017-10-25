@@ -47,7 +47,7 @@ namespace GameScore.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost] //data annotation sending items to page
         [ValidateAntiForgeryToken] //security feature
-        public ActionResult Create([Bind(Include = "ID,Name,Points")] Score score)
+        public ActionResult Create([Bind(Include = "ID,Name,Team,Points")] Score score)
                                     //takes in entity as argument
         {
             if (ModelState.IsValid) //checks to make sure database is okay before adding to it
@@ -81,7 +81,7 @@ namespace GameScore.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Points")] Score score)
+        public ActionResult Edit([Bind(Include = "ID,Name,Team,Points")] Score score)
         {
             if (ModelState.IsValid) //if we're good
             {

@@ -9,21 +9,29 @@
 <div>
     <h4>Score</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal"> @*dl = description list, dt = description table*@
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Name) @*pulls name*@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Name) @*pulls data*@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Points)
+            @Html.DisplayNameFor(model => model.Points) @*pulls data*@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Points)
+            @Html.DisplayFor(model => model.Points) @*displays data*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team) @*pulls data*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team) @*displays data*@
         </dd>
 
     </dl>

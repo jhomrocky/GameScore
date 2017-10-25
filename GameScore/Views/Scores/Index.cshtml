@@ -15,30 +15,46 @@
     @Html.ActionLink("Add New Player", "Create")
 </p>
 
+@*"Add new player" is text, "Create" is the method/action being called - Create()*@
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+        @*Looking into "model" and displaying .Name - these are for table headers*@
         <th>
             @Html.DisplayNameFor(model => model.Points)
+        </th>
+        @*Same with .name*@
+        <th>
+            @Html.DisplayNameFor(model => model.Team)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    @*Checks each "item" in "Model" then does the code below*@
+    <tr> @*tr = table row // td = table data (column)*@
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Name) @*Used instead of DisplayNameFor*@
+            @*Displays name*@
+            @*modelItem looks at item.Name and "adds" to item*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Points)
+        @*Displays points*@
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.DisplayFor(modelItem => item.Team)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) | 
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @*| is just the vertical bars between edit/details/delete*@
         </td>
+        @*Displays options on the right side of table and stores them in item.ID*@
     </tr>
 }
 
